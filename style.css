@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1em;
+  margin: 0;
+  background: rgb(37, 24, 24);
+  overflow: hidden;
+  font-family: "Shadows Into Light", cursive;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  font-size: 12em;
+  color: pink;
+  text-transform: uppercase;
+  transition: color 275ms ease;
+}
+.link:hover {
+  color: pink;
+}
+.link:hover ~ .hover-container .link-text {
+  opacity: 1;
+}
+.link:hover ~ .hover-container .image-container {
+  opacity: 1;
+}
+
+.link-text {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 12em;
+  color: #fff;
+  text-transform: uppercase;
+  pointer-events: none;
+  clip-path: circle(90px at var(--x) var(--y));
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.image-container {
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.image-inner {
+  position: absolute;
+  top: -75px;
+  left: -75px;
+  width: 150px;
+  height: 150px;
+}
+
+.link-image {
+  display: block;
+  max-width: 200%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1);
+}
